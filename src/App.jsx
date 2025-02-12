@@ -8,15 +8,15 @@ import Projects from './pages/Project'
 function App() {
 
   return (
-    <>
+    <div>
     
     <Routes>
       <Route path='/' element={<Events/>} />
-      <Route path='/events' element={<Events/>} />
+      
       <Route path='/tickets' element={<Tickets/>} />
       <Route path='/project' element={<Projects/>} />
     </Routes>
-  </>
+  </div>
   )
 }
 

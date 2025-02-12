@@ -1,0 +1,99 @@
+:root{
+    --back: #02191D;
+    --white: #FFFFFF;
+    --grey: #B3B3B3;
+    --oblack: #0A0C11;
+
+    --green: #0E464F;
+
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 24px;
+    border: 1px solid #197686;
+    width: 75%;
+    margin: auto;
+    height: 68px;
+    background-color: var(--back);
+    padding-left:  25px  ;
+    padding-right: 25px;
+    margin-top: 30px;
+}
+
+
+
+.navlink{
+    text-decoration: none;
+    line-height: 60px;
+    color: var(--white);
+
+
+}
+.myTickets{
+    width: 40%;
+    border-radius: 12px;
+    background: #FFF;
+    height: 44px;
+    color: var(--oblack);
+}
+.arrow{
+    padding-left: 5px;
+}
+
+
+    .list{
+        list-style-type: none;
+
+        display: flex;
+        justify-content: center;
+        border: 1px solid rgba(213, 234, 0, 0.10);  
+        flex-direction: row;
+     }
+     .list >li{
+        margin: auto;
+    }
+    .navlink{
+        color: var(--grey);
+        margin: 15px;
+        align-self: center;
+    }
+     .myTickets{
+        width: 20%;
+        border-radius: 12px;
+        border: 1px solid rgba(213, 234, 0, 0.10);   
+        background: #FFF;
+        height: 44px;
+        color: var(--oblack);
+    }
+
+@media only screen and (max-width: 768px){
+    .navbar{
+        margin-top: 10px;
+        width: 90%;
+
+    }
+    .list{
+        display: none;
+            flex-direction: column;
+            background-color: var(--green);
+            position: absolute;
+            top: 61px;
+            right: 20px;
+            width: 50%;
+            text-align: center;
+            border-radius: 5px;
+            padding: 10px;
+    
+    }
+    .list.open {
+        display: flex;
+    }
+        .myTickets{
+            width: 40%;}
+    
+    }
+
+
