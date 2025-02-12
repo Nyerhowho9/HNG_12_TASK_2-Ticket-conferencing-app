@@ -1,12 +1,22 @@
-import { useState } from 'react'
+import React from 'react'
+import { Routes, Route } from 'react-router-dom'
+import Events from './pages/Events'
+import Tickets from './pages/Tickets'
+import Projects from './pages/Project'
 
 
 function App() {
 
   return (
     <>
-      hiiilo
-    </>
+    
+    <Routes>
+      <Route path='/' element={<Events/>} />
+      <Route path='/events' element={<Events/>} />
+      <Route path='/tickets' element={<Tickets/>} />
+      <Route path='/project' element={<Projects/>} />
+    </Routes>
+  </>
   )
 }
 
