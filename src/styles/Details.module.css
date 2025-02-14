@@ -1,0 +1,186 @@
+.container{
+    background-color: var(--darkgreen);
+    border-radius: 32px;
+    border: 1px solid #0E464F;
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+}
+.imgContainer{
+    width: 80%;
+    margin: auto;
+    border-radius: 24px;
+    border: 1px solid #07373F;
+    background: #052228;
+    margin-top: 30px;
+    color: #FAFAFA;
+    padding-top: 20px;
+}
+
+.avatarLabel{
+    color: var(--color-grey-98, #FAFAFA);
+    font-family: Roboto;
+    font-size: 16px;
+    padding-left: 20px;
+}
+.dropZone{
+    width: 80%;
+    margin: auto;
+    height: 200px;
+    border-radius: 32px;
+    border: 4px solid rgba(36, 160, 181, 0.50);
+    background: #0E464F;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.cloud{
+    width: 70%;
+    margin: auto;
+    padding: 30px;
+    text-align: center;
+    margin-top: 40px;
+}
+.fileInput{
+    display: none;
+}
+.progressContainer{
+    width: 80%;
+    margin: auto;
+}
+.progressBar{
+    margin: auto;
+    background-color: var(--green);
+    height: 4px;
+    width: 100%;
+    border-radius: 5px;
+
+}
+.progress{
+    background-color: var(--progress);
+    height: 4px;
+    width: 50%;
+    border-radius: 5px;
+
+}
+.error{
+    color: red;
+}
+.nameContainer, .emailContainer, .aboutContainer{
+    width: 85%;
+    margin: auto;
+}
+
+.emailContainer, .aboutContainer{
+    margin-top: 30px;
+}
+.nameLabel, .emailLabel, .about{
+    color: #FAFAFA;
+}
+.name, .email{
+    border-radius: var(--Radius-reg-2, 12px);
+    border: 1px solid #07373F;
+    height: 48px;
+    width: 100%;
+    background-color: var(--darkgreen);
+    margin-top: 20px;
+    color: #FAFAFA;
+
+}
+.email{
+    background-image: url(../assets/envelope.png);
+    background-position: 12px 12px; 
+    background-repeat: no-repeat;
+
+}
+input::placeholder {
+    color: #FAFAFA;
+    padding-left: 50px;
+}
+textarea::placeholder{
+    color: #FAFAFA;
+    padding-top: 15px;
+    padding-left: 15px;
+}
+.textarea{
+    border-radius: var(--Radius-reg-2, 12px);
+    border: 1px solid #07373F;
+    height: 127px;
+    width: 100%;
+    background-color: var(--darkgreen);
+    margin-top: 20px;
+    color: #FAFAFA;
+
+}
+.buttonContainer{
+    width: 85%;
+    margin: auto;
+    margin-top: 20px;
+}
+.button1{
+   width: 100%;
+    border-radius: var(--Radius-reg, 8px);
+    background: #24A0B5;
+    color: #FFFFFF;
+    height: 48px;
+    border: none;
+    font-family: 'JejuMyeongjo';
+
+}
+.button2{
+    width: 100%;
+    border-radius: var(--Radius-reg, 8px);
+    border: 1px solid #24A0B5;
+    height: 48px;
+    background-color: var(--darkgreen);
+    color: #24A0B5;
+    margin-top: 20px;
+    font-family: 'JejuMyeongjo';
+}
+
+@media only screen and (min-width: 768px){
+    .container{
+        margin-top: 50px;
+        width: 50%;
+
+
+    }
+    .progressContainer{
+        margin-top: -10px;
+    }
+    .imgContainer{
+        width: 80%;
+        padding-top: 35px;
+        padding-bottom: 50px;
+    }
+    .avatarLabel{
+       
+        padding-left: 35px;
+    }
+    .plainBg{
+        background: rgba(0, 0, 0, 0.20);
+        height: 200px;
+        margin: auto;
+        width: 90%;
+        margin-top: 50px
+    }
+    .dropZone{
+        width: 50%;
+        margin: auto;
+        height: 240px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        position: relative;
+        bottom:  30px;
+    }
+    .buttonContainer{
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 24px;    
+    }
+
+     .button2{
+         margin-top: 0px;
+     }
+}

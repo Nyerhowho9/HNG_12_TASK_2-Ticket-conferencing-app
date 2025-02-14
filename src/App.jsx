@@ -3,6 +3,8 @@ import { Routes, Route } from 'react-router-dom'
 import Events from './pages/Events'
 import Tickets from './pages/Tickets'
 import Projects from './pages/Project'
+import Details from './pages/Details'
+import ReadyTicket from './pages/ReadyTicket'
 
 
 function App() {
@@ -15,6 +17,8 @@ function App() {
       
       <Route path='/tickets' element={<Tickets/>} />
       <Route path='/project' element={<Projects/>} />
+      <Route path='/details' element={<Details/>} />
+      <Route path='/details/ready' element={<ReadyTicket/>}/>
     </Routes>
   </div>
   )

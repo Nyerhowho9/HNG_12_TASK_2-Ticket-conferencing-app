@@ -1,0 +1,38 @@
+.typeContainer{
+    margin: auto;
+    border-radius: var(--Radius-reg-2, 12px);
+    border: 1px solid #197686;
+    width: 80%;
+    padding-left: 15px;
+    margin-top: 20px;
+    
+}
+
+.price{
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 26.4px ;
+
+}
+.access{
+    color: #FAFAFA;
+    font-family: Roboto;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px ;
+    text-transform: uppercase;
+}
+.quantity{
+    color: #D9D9D9;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px; 
+}
+@media only screen and (min-width: 768px){
+}

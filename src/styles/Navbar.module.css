@@ -18,8 +18,8 @@
     margin: auto;
     height: 68px;
     background-color: var(--back);
-    padding-left:  25px  ;
-    padding-right: 25px;
+    padding-left:  20px  ;
+    padding-right: 20px;
     margin-top: 30px;
 }
 
@@ -59,20 +59,23 @@
         color: var(--grey);
         margin: 15px;
         align-self: center;
+        font-family: JejuMyeongjo;
     }
      .myTickets{
-        width: 20%;
+        width: 15%;
         border-radius: 12px;
         border: 1px solid rgba(213, 234, 0, 0.10);   
         background: #FFF;
         height: 44px;
         color: var(--oblack);
+        font-family: JejuMyeongjo;
+
     }
 
 @media only screen and (max-width: 768px){
     .navbar{
         margin-top: 10px;
-        width: 90%;
+        width: 78%;
 
     }
     .list{

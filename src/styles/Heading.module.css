@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+    --back: #02191D;
+    --white: #FFFFFF;
+    --grey: #B3B3B3;
+    --oblack: #0A0C11;
+    --green: #0E464F;
+    --step: #FAFAFA;
+    --progress: #24A0B5;
+
+}
+
+.headingContainer{
+    width: 80%;
+    margin: auto;
+}
+.stepName{
+    display: flex;
+    flex-direction: column;
+}
+.p1{
+    color: var(--white);
+    font-family: "JejuMyeongjo";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+
+}
+.step{
+    color: var(--step);
+    font-family: "Roboto";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    margin-top: -5px;
+    padding-top: 10px;
+
+}
+
+@media only screen and (min-width: 768px){
+    .headingContainer{
+        width: 80%;
+    }
+    .stepName{
+        flex-direction: row;
+        
+
+    }
+    .p1{
+        font-size: 32px;
+        width: 70%;
+    }
+
+    .step{
+        width: 30%;
+        margin-top: 30px;
+        line-height: 24px;
+
+    }
+}

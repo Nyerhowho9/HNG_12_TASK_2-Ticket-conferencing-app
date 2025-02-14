@@ -1,0 +1,15 @@
+.imgContainer{
+    width: 80%;
+    margin: auto;
+    border-radius: 24px;
+    border: 1px solid #07373F;
+    background: #052228;
+    margin-top: 30px;
+
+}
+
+.imgContainer >p{
+    color: var(--color-grey-98, #FAFAFA);
+    font-family: Roboto;
+    font-size: 16px;
+}

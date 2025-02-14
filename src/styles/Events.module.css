@@ -1,0 +1,174 @@
+:root{
+    --back: #02191D;
+    --white: #FFFFFF;
+    --grey: #B3B3B3;
+    --oblack: #0A0C11;
+    --darkgreen: #08252B;
+    --green: #0E464F;
+    --step: #FAFAFA;
+
+}
+
+.container{
+    background-color: var(--darkgreen);
+    border-radius: 32px;
+    border: 1px solid #0E464F;
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 40px;
+}
+.headingContainer{
+    width: 80%;
+    margin: auto;
+}
+.stepName{
+    display: flex;
+    flex-direction: column;
+}
+.p1{
+    color: var(--white);
+    font-family: "JejuMyeongjo";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+
+}
+.step{
+    color: var(--step);
+    font-family: "Roboto";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    margin-top: -5px;
+    padding-top: 10px;
+
+}
+.progressContainer{
+    width: 80%;
+    margin: auto;
+}
+.progressBar{
+    margin: auto;
+    background-color: var(--green);
+    height: 4px;
+    width: 100%;
+    border-radius: 5px;
+
+}
+.progress{
+    background-color: var(--progress);
+    height: 4px;
+    width: 30%;
+    border-radius: 5px;
+
+}
+.select{
+    margin: auto;
+    font-family: Roboto;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+color: var(--step);
+width: 86%;
+margin-top: 40px;
+line-height: 24px;
+}
+
+.typeContainer{
+    margin: auto;
+    margin-top: 30px;
+    border-radius: 24px;
+    border: 1px solid #07373F;
+    background: #052228;
+    width: 85%;
+    padding-bottom: 20px;
+}
+.numberContainer{
+    width: 85%;
+    margin: auto;
+    margin-top: 20px ;
+}
+.number{
+    color: #FAFAFA;
+    font-family: 'Roboto';
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+}
+.buttonContainer{
+    width: 85%;
+    margin: auto;
+    margin-top: 20px;
+}
+.button1{
+   width: 100%;
+    border-radius: var(--Radius-reg, 8px);
+    background: #24A0B5;
+    color: #FFFFFF;
+    height: 48px;
+    border: none;
+    font-family: 'JejuMyeongjo';
+
+}
+.button2{
+    width: 100%;
+    border-radius: var(--Radius-reg, 8px);
+    border: 1px solid #24A0B5;
+    height: 48px;
+    background-color: var(--darkgreen);
+    color: #24A0B5;
+    margin-top: 20px;
+    font-family: 'JejuMyeongjo';
+}
+
+@media only screen and (min-width: 768px){
+    .container{
+        margin-top: 50px;
+        width: 50%;
+
+
+    }
+    .headingContainer{
+        width: 80%;
+    }
+    .stepName{
+        flex-direction: row;
+        
+
+    }
+    .p1{
+        font-size: 32px;
+        width: 70%;
+    }
+
+    .step{
+        width: 30%;
+        margin-top: 30px;
+        line-height: 24px;
+
+    }
+    .progressContainer{
+        margin-top: -10px;
+    }
+    .typeContainer{
+        display: grid;
+        grid-template-columns: auto auto auto;
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-bottom: 20px;
+    }
+    .number{
+       margin-top: 40px;
+    }
+    .buttonContainer{
+        display: flex;
+        flex-direction: row;
+        gap: 24px;    
+    }
+
+     .button2{
+         margin-top: 0px;
+     }
+}

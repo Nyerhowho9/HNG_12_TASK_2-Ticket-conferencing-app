@@ -1,0 +1,10 @@
+.progressBar{
+    margin: auto;
+    background-color: var(--green);
+    height: 4px;
+    width: 85%;
+    border-radius: 5px;
+margin-bottom: 20px;
+margin-top: 40px;
+
+}

@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Road+Rage&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+.heroContainer{
+        width: 85%;
+        margin: auto;
+        border-radius: 24px;
+        border-right: 2px solid #07373F;
+        
+        border-bottom: 2px solid #07373F;
+        
+        border-left: 2px solid #07373F;
+        
+        background: radial-gradient(57.42% 106.59% at 14.02% 32.06%, rgba(36, 160, 181, 0.20) 0%, rgba(36, 160, 181, 0.00) 100%), rgba(10, 12, 17, 0.10);
+        
+        backdrop-filter: blur(7px);
+        text-align: center;
+
+}
+.eventName{
+    font-family: "Road Rage", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 48px;
+    color: var(--step);
+    padding-top: 30px;
+
+}
+.heroText{
+    margin: auto;
+    font-family: 'Roboto';
+    color: var(--step);
+    width: 80%;
+    font-size: 14px;
+    margin-top: -15px;
+}
+.locationContainer{
+    color: var(--step);
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.date{
+    margin-top: -5px;
+
+}
+.part{
+    display: none;
+}
+
+@media only screen and (min-width: 768px){
+    .eventName{
+       
+        font-size: 62px;
+    }
+    .heroText{
+       
+        width: 45%;
+       
+    }
+    .part{
+        display: inline;
+    }
+}
