@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useCallback} from "react";
-import {useDropzone} from 'react-dropzone'
+
 import { useNavigate } from 'react-router-dom'
+import { useDropzone } from "react-dropzone";
 import NavBar from "../components/NavBar";
 import Headng from "../components/Heading";
 import ProgressBar from "../components/ProgressBar";
@@ -8,19 +9,24 @@ import cloud from '../assets/cloud.png'
 import styles from '../styles/Details.module.css'
 import axios from 'axios'
 
+
+const CLOUDINARY_UPLOAD_PRESET = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET;
+const CLOUDINARY_CLOUD_NAME = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
+
 export default function Details() {
+
+
     const navigate = useNavigate();
-    const cloudName = process.env.REACT_APP_CLOUDINARY_CLOUD_NAME;
-    const uploadPreset = process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET;
     const [formData, setFormData] = useState({
         fullName: "",
         email: "",
         avatar: "",
         aboutProject: ""
     });
-    const [avatarPreview, setAvatarPreview] = useState(null);
     const [errors, setErrors] = useState({});
-
+    const [uploading, setUploading] = useState(false);
+    const [avatarPreview, setAvatarPreview] = useState(null);
+    
     useEffect(() => {
         const savedData = localStorage.getItem("formData");
         if (savedData) {
@@ -42,35 +48,43 @@ export default function Details() {
         
         setFormData({ ...formData, [name]: value });
     };
+    const onDrop = async (acceptedFiles) => {
+        const file = acceptedFiles[0];
+        if (!file) return;
+        
+        console.log("Uploading file:", file.name); //debugging
 
-    const handleAvatarUpload = async (file) => {
-        const formData = new FormData();
-        formData.append("file", file);
-        formData.append("upload_preset", "nyerhowho"); // Replace with Cloudinary preset
-
+        setUploading(true); // Indicate uploading
+        const formDataCloudinary = new FormData();
+        formDataCloudinary.append("file", file);
+        formDataCloudinary.append("upload_preset", CLOUDINARY_UPLOAD_PRESET); // Replace with Cloudinary preset
+    
         try {
-            const response = await axios.post("https://api.cloudinary.com/v1_1/${cloudName}/image/upload", formData);
-            setAvatarPreview(response.data.secure_url);
-            setFormData((prevData) => ({ ...prevData, avatar: response.data.secure_url }));
+            const response = await axios.post(
+                `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`,
+                formDataCloudinary
+            );
+
+            console.log("Cloudinary Response:", response.data); // Debugging
+
+
+            const imageUrl = response.data.secure_url;
+    
+            setFormData((prev) => ({ ...prev, avatar: imageUrl })); // Store Cloudinary URL
+            setAvatarPreview(imageUrl); // Update preview inside drop zone
+            setUploading(false);
         } catch (error) {
-            console.error("Error uploading image", error);
+            console.error("Upload error:", error);
+            setErrors((prev) => ({ ...prev, avatar: "Failed to upload avatar" }));
+            setUploading(false);
         }
     };
+    
+        const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop, accept: "image/*" });
 
-    const handleDrop = (e) => {
-        e.preventDefault();
-        const file = e.dataTransfer.files[0];
-        if (file) {
-            handleAvatarUpload(file);
-        }
-    };
 
-    const handleFileChange = (e) => {
-        const file = e.target.files[0];
-        if (file) {
-            handleAvatarUpload(file);
-        }
-    };
+  
+    
 
     const validateForm = () => {
         let newErrors = {};
@@ -84,7 +98,9 @@ export default function Details() {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (validateForm()) {
-            onSubmit(formData);
+            console.log("Form Submitted Successfully!", formData);
+
+            navigate("/ready", { state: { formData } }); 
         }
     };
    
@@ -103,23 +119,20 @@ export default function Details() {
                 <div className={styles.imgContainer}>
                     <label htmlFor="avatar" className={styles.avatarLabel}>Upload Profile Photo</label>
                     <div className={styles.plainBg}>
-                        <div 
-                            id="avatar"
-                            className={styles.dropZone} 
-                            onDrop={handleDrop} 
-                            onDragOver={(e) => e.preventDefault()}
-                        >
-                        <div className={styles.cloud}>
-                                <img src={cloud}  alt="Cloud icon" />
-                                <p>Drag & drop or click to upload</p> 
-                                <input type="file" accept="image/*" onChange={handleFileChange}  className={styles.fileInput}/>
-
-                        </div>
+                        <div {...getRootProps()} className={styles.dropZone}>
+                            <input {...getInputProps()} />
+                            <div className={styles.cloud}>
+                                {avatarPreview ? (
+                                    <img src={avatarPreview} alt="Uploaded Avatar" className={styles.avatarPreview} />
+                                ) : (
+                                    <>
+                                        <img src={cloud} alt="Cloud icon" />
+                                        {isDragActive ? <p>Drop the file here...</p> : <p>Drag & drop or click to upload</p>}
+                                    </>
+                                )}
+                            </div>
                         </div>
                     </div>
-                   
-            {avatarPreview && <img src={avatarPreview} alt="Profile photo Preview" className={styles.avatarPreview} />}
-            {errors.avatar && <p className={styles.error}>{errors.avatar}</p>}
                 </div>
                 <ProgressBar/>
                 <div className={styles.nameContainer}>
@@ -150,11 +163,12 @@ export default function Details() {
 
            
                 <div className={styles.buttonContainer}>
-                    <button className={styles.button1}  type="submit" > Get My Free Ticket</button>
-                    <button className={styles.button2} >Back</button>
+                <button className={styles.button1} type="submit" disabled={uploading}>
+                        {uploading ? "Uploading..." : "Get My Free Ticket"}
+                </button>               
+                 <button className={styles.button2} >Back</button>
                 </div>
             </form>
-           
-        </div>
+     </div>
     </>
 }
