@@ -7,6 +7,17 @@
     margin-top: 20px;
     
 }
+/* Hover effect */
+.typeContainer:hover {
+    background-color: #2C545B;
+    transform: scale(1.05);
+}
+
+/* Selected effect */
+.typeContainer.selected {
+    background-color: #12464E;
+    color: white;
+}
 
 .price{
     color: #FFF;

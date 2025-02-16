@@ -152,7 +152,7 @@ export default function Details() {
                 </div>
 
                 <div className={styles.aboutContainer}>
-                    <label htmlFor="about" className={styles.about}>About Project:</label>
+                    <label htmlFor="about" className={styles.about}>Special Request?</label>
                     <br />
                     <textarea
                         id="about"
