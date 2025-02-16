@@ -63,7 +63,7 @@ text-align: center; }
     align-self: center;
 }
 .resultContainer{
-    width: 75%;
+    width: 255px;
     margin: auto;
     border-radius: 16px;
     border: 1px solid #24A0B5;
@@ -184,7 +184,7 @@ height: 45px;
     
 }
 .barcodeContainer{
-    width: 70%;
+    width: 255px;
     margin: auto;
     height: 100px;
     position: relative;
@@ -239,7 +239,7 @@ height: 45px;
         margin-top: 35px;
     }
     .resultContainer{
-        width: 45%;
+        width: 255px;
        
     }
     .resultForm{
@@ -249,7 +249,7 @@ height: 45px;
         margin-bottom: 5px;
     }
     .barcodeContainer{
-        width: 30%;
+        width: 250px;
         margin: auto;
         height: 100px;
         position: relative;
