@@ -123,8 +123,16 @@ export default function Details() {
                 <div className={styles.imgContainer}>
                     <label htmlFor="avatar" className={styles.avatarLabel}>Upload Profile Photo</label>
                     <div className={styles.plainBg}>
-                        <div {...getRootProps()} className={styles.dropZone}>
-                            <input {...getInputProps()} />
+                        <div {...getRootProps()} className={styles.dropZone}
+                         tabIndex={0}
+                         role="button"
+                         aria-label="Upload your profile photo"
+                         onKeyDown={(e) => {
+                             if (e.key === "Enter" || e.key === " ") getInputProps().onClick();
+                         }}>
+                            <input {...getInputProps() }
+                            aria-hidden="true"  
+                            />
                             <div className={styles.cloud}>
                                 {avatarPreview ? (
                                     <img src={avatarPreview} alt="Uploaded Avatar" className={styles.avatarPreview} />
@@ -142,13 +150,18 @@ export default function Details() {
                 <div className={styles.nameContainer}>
                     <label htmlFor="name" className={styles.nameLabel}> Enter your name:</label>
                     <br />
-                    <input type="text" id="name" name="fullName" value={formData.fullName} onChange={handleChange} className={styles.name} />
-                     {errors.fullName && <p className={styles.error}>{errors.fullName}</p>}
+                    <input type="text" id="name" name="fullName" value={formData.fullName}
+                     onChange={handleChange} className={styles.name} 
+                     aria-describedby="name-error"
+                     />
+                     {errors.fullName && <p id="name-error" className={styles.error}>{errors.fullName}</p>}
                 </div>
                 <div className={styles.emailContainer}>
                     <label htmlFor="email" className={styles.emailLabel}>Email Address:</label>
-                    <input type="email" id="email" name="email" value={formData.email} onChange={handleChange}  className={styles.email} placeholder="hello@avioflagos.io"/>
-                    {errors.email && <p className={styles.error}>{errors.email}</p>}
+                    <input type="email" id="email" name="email" value={formData.email} 
+                    onChange={handleChange}  className={styles.email} placeholder="hello@avioflagos.io"
+                    aria-describedby="email-error"/>
+                    {errors.email && <p id="email-error"  className={styles.error}>{errors.email}</p>}
                 </div>
 
                 <div className={styles.aboutContainer}>
@@ -162,15 +175,23 @@ export default function Details() {
                         rows="3"
                         className={styles.textarea}
                         placeholder="Textarea"
+                        aria-describedby="about-error"
+
                     />
                 </div>
 
            
                 <div className={styles.buttonContainer}>
-                <button className={styles.button1} type="submit" disabled={uploading}>
-                        {uploading ? "Uploading..." : "Get My Free Ticket"}
-                </button>               
-                 <button className={styles.button2} onClick={() => navigate(-1)}>Back</button>
+                    <button className={styles.button1} type="submit" disabled={uploading}
+                        aria-label="Submit form and get your free ticket"  
+                    >
+                            {uploading ? "Uploading..." : "Get My Free Ticket"}
+                    </button>               
+                    <button className={styles.button2} onClick={() => navigate(-1)}
+                      aria-label="Go back to the previous page"
+                    >
+                        Back
+                    </button>
                 </div>
             </form>
      </div>

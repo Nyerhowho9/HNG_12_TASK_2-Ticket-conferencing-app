@@ -5,7 +5,11 @@ export default function TicketType({ price, access, quantity, isSelected, onSele
 
   return <>
     <div className={`${styles.typeContainer} ${isSelected ? styles.selected : ""}`}
-      onClick={onSelect}>
+      onClick={onSelect} 
+      onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && onSelect()} 
+      role="button"
+      tabIndex={0} 
+      aria-label={`Select ${access} ticket for ${price}`} >
         <p className={styles.price}>{price}</p>
         <p className={styles.access} >{access}</p>
         <p className={styles.quantity}>{quantity}</p>

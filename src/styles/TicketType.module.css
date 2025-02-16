@@ -5,7 +5,14 @@
     width: 80%;
     padding-left: 15px;
     margin-top: 20px;
+    outline: none;
     
+}
+
+/* Focus state for keyboard users */
+.typeContainer:focus {
+    outline: 3px solid #2C545B;
+    background-color: #2C545B;
 }
 /* Hover effect */
 .typeContainer:hover {

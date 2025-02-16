@@ -87,6 +87,7 @@ export default function Event(){
                     className={styles.number} 
                     value={quantity}  // ✅ This ensures the selected value is shown
                     onChange={handleQuantityChange}
+                    aria-label="Select number of tickets"
                 >
                     {[...Array(10)].map((_, i) => (
                         <option key={i + 1} value={i + 1}>{i + 1}</option>
@@ -94,8 +95,14 @@ export default function Event(){
                 </select>
             </div>
             <div className={styles.buttonContainer}>
-                <button className={styles.button1} type="submit" onClick={() => navigate('/details', { state: { selectedTicket, quantity } })}> Next</button>
-                <button className={styles.button2} >Close</button>
+                <button className={styles.button1} type="submit" 
+                onClick={() => navigate('/details', { state: { selectedTicket, quantity } })}
+                aria-label="Proceed to enter ticket details"
+                >
+                     Next
+                </button>
+                
+                <button className={styles.button2} aria-label="Close ticket selection">Close</button>
             </div>
         
         </div>

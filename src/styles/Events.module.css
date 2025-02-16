@@ -133,6 +133,9 @@ line-height: 24px;
     margin-top: 20px;
     font-family: 'JejuMyeongjo';
 }
+.button1:focus, .button2:focus {
+    outline: 3px solid #24A0B5;
+}
 
 @media only screen and (min-width: 768px){
     .container{
