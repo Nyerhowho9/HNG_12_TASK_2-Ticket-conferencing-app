@@ -71,7 +71,7 @@ font-size: 16px;
 font-style: normal;
 font-weight: 400;
 color: var(--step);
-width: 86%;
+width: 84%;
 margin-top: 40px;
 line-height: 24px;
 }
@@ -90,12 +90,23 @@ line-height: 24px;
     margin: auto;
     margin-top: 20px ;
 }
-.number{
+.numberLabel{
     color: #FAFAFA;
     font-family: 'Roboto';
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
+}
+.number{
+    width: 100%;
+    background: #08252B; 
+    border-radius: var(--Radius-reg-2, 12px);
+    border: 1px solid #07373F;
+    height: 48px;
+    color: #FAFAFA;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-top: 10px
 }
 .buttonContainer{
     width: 85%;
@@ -159,8 +170,9 @@ line-height: 24px;
         padding-right: 5px;
         padding-bottom: 20px;
     }
-    .number{
+    .numberLabel{
        margin-top: 40px;
+
     }
     .buttonContainer{
         display: flex;

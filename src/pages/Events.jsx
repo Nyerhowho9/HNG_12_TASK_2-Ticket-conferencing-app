@@ -33,10 +33,23 @@ export default function Event(){
                 <TicketType price="$150" access="VVIIP ACCESS" quantity="20/52"  />
             </div>
             <div className={styles.numberContainer}>
-                <p className={styles.number}>Number of tickets:</p>
+                <label htmlFor="qty" className={styles.numberLabel}>Number of tickets:</label>
+                <br />
+                <select name="qty" id="qty" className={styles.number}>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
             </div>
             <div className={styles.buttonContainer}>
-                <button className={styles.button1}  onClick={() => navigate('details')}> Next</button>
+                <button className={styles.button1} type="submit" onClick={() => navigate('details')}> Next</button>
                 <button className={styles.button2} >Close</button>
             </div>
         

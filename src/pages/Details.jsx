@@ -17,11 +17,14 @@ export default function Details() {
 
 
     const navigate = useNavigate();
-    const [formData, setFormData] = useState({
-        fullName: "",
-        email: "",
-        avatar: "",
-        aboutProject: ""
+    const [formData, setFormData] = useState(() => {
+        const savedData = localStorage.getItem("formData");
+        return savedData ? JSON.parse(savedData) : {
+            fullName: "",
+            email: "",
+            avatar: "",
+            aboutProject: ""
+        };
     });
     const [errors, setErrors] = useState({});
     const [uploading, setUploading] = useState(false);
@@ -34,9 +37,7 @@ export default function Details() {
         }
     }, []);
 
-    useEffect(() => {
-        localStorage.setItem("formData", JSON.stringify(formData));
-    }, [formData]);
+  
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -46,8 +47,11 @@ export default function Details() {
             if (lines.length > 3) return; // Prevent more than 3 rows
         }
         
-        setFormData({ ...formData, [name]: value });
+        const updatedData = { ...formData, [name]: value };
+        setFormData(updatedData);
+        localStorage.setItem("formData", JSON.stringify(updatedData));
     };
+    
     const onDrop = async (acceptedFiles) => {
         const file = acceptedFiles[0];
         if (!file) return;
@@ -166,7 +170,7 @@ export default function Details() {
                 <button className={styles.button1} type="submit" disabled={uploading}>
                         {uploading ? "Uploading..." : "Get My Free Ticket"}
                 </button>               
-                 <button className={styles.button2} >Back</button>
+                 <button className={styles.button2} onClick={() => navigate(-1)}>Back</button>
                 </div>
             </form>
      </div>
