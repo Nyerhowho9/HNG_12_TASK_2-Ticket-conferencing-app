@@ -61,7 +61,7 @@ export default function Details() {
         setUploading(true); // Indicate uploading
         const formDataCloudinary = new FormData();
         formDataCloudinary.append("file", file);
-        formDataCloudinary.append("upload_preset", CLOUDINARY_UPLOAD_PRESET); // Replace with Cloudinary preset
+        formDataCloudinary.append("upload_preset", CLOUDINARY_UPLOAD_PRESET); 
     
         try {
             const response = await axios.post(
@@ -78,7 +78,7 @@ export default function Details() {
             setAvatarPreview(imageUrl); // Update preview inside drop zone
             setUploading(false);
         } catch (error) {
-            console.error("Upload error:", error);
+            console.error("Upload error:", error.response ? error.response.data : error.message);
             setErrors((prev) => ({ ...prev, avatar: "Failed to upload avatar" }));
             setUploading(false);
         }

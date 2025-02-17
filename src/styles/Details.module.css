@@ -7,6 +7,16 @@
     margin-top: 20px;
     padding-bottom: 20px;
     margin-bottom: 40px;
+    padding-bottom: 50px;
+}
+.form{
+    border-radius: 32px;
+
+background: #08252B;
+width: 90%;
+margin: auto;
+margin-top: 40px;
+padding-bottom: 30px;
 }
 .imgContainer{
     width: 80%;
@@ -81,7 +91,9 @@
     width: 85%;
     margin: auto;
 }
-
+input[type=email]{
+    padding-left: 45px;
+}
 .emailContainer, .aboutContainer{
     margin-top: 30px;
 }
@@ -121,6 +133,8 @@ textarea::placeholder{
     background-color: var(--darkgreen);
     margin-top: 20px;
     color: #FAFAFA;
+    padding-left: 10px;
+    padding-top: 20px;
 
 }
 .buttonContainer{
@@ -158,6 +172,16 @@ textarea::placeholder{
     }
     .progressContainer{
         margin-top: -10px;
+    }
+    .form{
+        border-radius: 32px;
+    border: 1px solid #0E464F;
+    
+    background: #08252B;
+    width: 90%;
+    margin: auto;
+    margin-top: 40px;
+    padding-bottom: 30px;
     }
     .imgContainer{
         width: 80%;
